@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>选择题练习系统</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>选择题练习系统</h1>
+        
+        <div class="control-panel">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="搜索题目或选项...">
+            </div>
+            
+            <div class="import-container">
+                <input type="file" id="fileInput" accept=".txt" style="display: none;">
+                <button onclick="document.getElementById('fileInput').click()">导入题库</button>
+                <button onclick="exportQuestions()">导出题库</button>
+            </div>
+        </div>
+
+        <div id="questionsContainer">
+            <!-- 单选题 -->
+            <div class="question" data-type="single">
+                <h3>1. 以下哪个是中国的首都？</h3>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="A"> A. 上海</label>
+                    <label><input type="radio" name="q1" value="B"> B. 北京</label>
+                    <label><input type="radio" name="q1" value="C"> C. 广州</label>
+                    <label><input type="radio" name="q1" value="D"> D. 深圳</label>
+                </div>
+            </div>
+
+            <!-- 多选题 -->
+            <div class="question" data-type="multiple">
+                <h3>2. 以下哪些是编程语言？（多选）</h3>
+                <div class="options">
+                    <label><input type="checkbox" name="q2" value="A"> A. Python</label>
+                    <label><input type="checkbox" name="q2" value="B"> B. Java</label>
+                    <label><input type="checkbox" name="q2" value="C"> C. HTML</label>
+                    <label><input type="checkbox" name="q2" value="D"> D. CSS</label>
+                </div>
+            </div>
+
+            <!-- 判断题 -->
+            <div class="question" data-type="true-false">
+                <h3>3. 太阳从西边升起。</h3>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="true"> 正确</label>
+                    <label><input type="radio" name="q3" value="false"> 错误</label>
+                </div>
+            </div>
+        </div>
+
+        <button onclick="checkAnswers()" class="submit-btn">提交答案</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
